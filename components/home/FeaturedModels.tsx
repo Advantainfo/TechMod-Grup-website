@@ -14,7 +14,6 @@ const labels = {
     bath: "bath",
     singleStorey: "Single storey",
     twoStoreys: "Two storeys",
-    from: "From",
     viewModel: "View Model",
     viewAll: "View All Models",
   },
@@ -26,7 +25,6 @@ const labels = {
     bath: "баня",
     singleStorey: "Едноетажен",
     twoStoreys: "Двуетажен",
-    from: "От",
     viewModel: "Виж Модела",
     viewAll: "Виж Всички Модели",
   },
@@ -95,15 +93,7 @@ export function FeaturedModels({ lang }: { lang: Lang }) {
                     <span>{model.stories === 1 ? t.singleStorey : t.twoStoreys}</span>
                   </div>
 
-                  <div className="flex items-center justify-between pt-5 border-t border-brand-border">
-                    <div>
-                      <p className="font-sans text-brand-gray text-[10px] tracking-wider uppercase mb-0.5">
-                        {t.from}
-                      </p>
-                      <p className="font-serif text-xl text-white">
-                        €{model.price.toLocaleString()}
-                      </p>
-                    </div>
+                  <div className="flex items-center justify-end pt-5 border-t border-brand-border">
                     <span className="font-sans text-brand-accent text-xs tracking-widest uppercase group-hover:gap-3 flex items-center gap-2 transition-all duration-300">
                       {t.viewModel}
                       <ArrowRight />

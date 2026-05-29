@@ -10,7 +10,7 @@ interface ArchImageProps {
 
 export function ArchImage({ gradient, accent, className = "", label, src }: ArchImageProps) {
   return (
-    <div className={`relative overflow-hidden ${className}`} aria-label={label}>
+    <div className={`overflow-hidden ${className}`} aria-label={label}>
       {src ? (
         <Image
           src={src}

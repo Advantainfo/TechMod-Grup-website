@@ -3,7 +3,7 @@ import { AnimateInView } from "@/components/ui/AnimateInView";
 import { Button } from "@/components/ui/Button";
 import { ArchImage } from "@/components/ui/ArchImage";
 import { ContactCTA } from "@/components/home/ContactCTA";
-import { getLocalizedTeamMembers, type Lang } from "@/lib/data";
+import type { Lang } from "@/lib/data";
 
 const labels = {
   en: {
@@ -17,8 +17,6 @@ const labels = {
     storyCta: "Start a Conversation",
     valuesEyebrow: "Our Values",
     valuesTitle: "What We Stand For",
-    teamEyebrow: "The Team",
-    teamTitle: "The People Behind<br/>Your Home",
     values: [
       { title: "Architectural Integrity", description: "We believe prefabricated homes should be architecturally indistinguishable from the finest site-built residences. We hold ourselves to that standard on every project." },
       { title: "Radical Transparency", description: "Fixed prices. Honest timelines. No surprises. We tell you everything upfront because trust is the foundation of every home we build." },
@@ -37,8 +35,6 @@ const labels = {
     storyCta: "Започнете Разговор",
     valuesEyebrow: "Нашите Ценности",
     valuesTitle: "За Какво Стоим",
-    teamEyebrow: "Екипът",
-    teamTitle: "Хората Зад<br/>Вашия Дом",
     values: [
       { title: "Архитектурна Цялост", description: "Вярваме, че сглобяемите домове трябва да бъдат архитектурно неотличими от най-изисканите традиционно построени резиденции. Придържаме се към този стандарт при всеки проект." },
       { title: "Радикална Прозрачност", description: "Фиксирани цени. Честни срокове. Без изненади. Казваме ви всичко предварително, защото доверието е основата на всеки дом, който строим." },
@@ -52,7 +48,6 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
   const { lang } = await params;
   const l = lang as Lang;
   const t = labels[l];
-  const team = getLocalizedTeamMembers(l);
 
   return (
     <>
@@ -82,7 +77,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
             <ArchImage
               gradient="from-zinc-700 via-zinc-800 to-stone-900"
               accent="from-amber-900/20 to-transparent"
-              src="/images/WhatsApp Image 2026-05-29 at 23.10.44.jpeg"
+              src="/images/hero-house.jpg.jpeg"
               className="absolute inset-0"
               label="Techmod Group factory and headquarters"
             />
@@ -130,33 +125,6 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
                   <div className="w-8 h-px bg-brand-accent mb-6" />
                   <h3 className="font-serif text-xl text-white mb-4">{value.title}</h3>
                   <p className="font-sans text-brand-gray text-sm leading-relaxed">{value.description}</p>
-                </div>
-              </AnimateInView>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 lg:py-32 bg-brand-secondary">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <AnimateInView>
-            <SectionTitle eyebrow={t.teamEyebrow} title={t.teamTitle} />
-          </AnimateInView>
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member, i) => (
-              <AnimateInView key={member.name} delay={i * 80}>
-                <div className="group">
-                  <div className="relative aspect-[3/4] overflow-hidden mb-5">
-                    <ArchImage
-                      gradient={["from-zinc-700 via-zinc-800 to-zinc-900", "from-stone-700 via-stone-800 to-zinc-900", "from-slate-700 via-slate-800 to-zinc-900", "from-neutral-700 via-neutral-800 to-zinc-900"][i % 4]}
-                      className="absolute inset-0 group-hover:scale-105 transition-transform duration-500"
-                      label={member.name}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-secondary via-transparent to-transparent" />
-                  </div>
-                  <h3 className="font-serif text-xl text-white mb-1">{member.name}</h3>
-                  <p className="font-sans text-brand-accent text-xs tracking-wider mb-3">{member.title}</p>
-                  <p className="font-sans text-brand-gray text-sm leading-relaxed">{member.bio}</p>
                 </div>
               </AnimateInView>
             ))}

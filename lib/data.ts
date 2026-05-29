@@ -33,7 +33,7 @@ export const models = [
     accent: "from-amber-900/30 to-transparent",
     badge: "Most Popular",
     badge_bg: "Най-Популярен",
-    image: "/images/WhatsApp Image 2026-04-05 at 17.12.13.jpeg",
+    image: "/images/skyline-180.jpg.jpeg",
   },
   {
     id: "vista-240",
@@ -67,7 +67,7 @@ export const models = [
     accent: "from-orange-900/25 to-transparent",
     badge: "New Model",
     badge_bg: "Нов Модел",
-    image: "/images/WhatsApp Image 2026-04-05 at 17.12.14.jpeg",
+    image: "/images/vista-240.jpg.jpeg",
   },
   {
     id: "summit-320",
@@ -101,7 +101,7 @@ export const models = [
     accent: "from-yellow-900/20 to-transparent",
     badge: "Flagship",
     badge_bg: "Флагман",
-    image: "/images/WhatsApp Image 2026-04-05 at 17.12.15.jpeg",
+    image: "/images/summit-320.jpg.jpeg",
   },
   {
     id: "studio-65",
@@ -135,7 +135,7 @@ export const models = [
     accent: "from-amber-900/35 to-transparent",
     badge: null,
     badge_bg: null,
-    image: "/images/WhatsApp Image 2026-04-05 at 17.12.15 2.jpeg",
+    image: "/images/studio-65.jpg.jpeg",
   },
   {
     id: "horizon-160",
@@ -169,7 +169,7 @@ export const models = [
     accent: "from-green-900/20 to-transparent",
     badge: null,
     badge_bg: null,
-    image: "/images/WhatsApp Image 2026-04-05 at 17.12.16.jpeg",
+    image: "/images/horizon-160.jpg.jpeg",
   },
   {
     id: "pinnacle-400",
@@ -203,7 +203,7 @@ export const models = [
     accent: "from-amber-800/20 to-transparent",
     badge: "Bespoke",
     badge_bg: "По Поръчка",
-    image: "/images/WhatsApp Image 2026-04-05 at 17.12.44.jpeg",
+    image: "/images/pinnacle-400.jpg.jpeg",
   },
 ];
 
@@ -244,7 +244,7 @@ export const projects = [
       "Озеленена градина 800m²",
     ],
     gradient: "from-stone-800 via-zinc-900 to-neutral-950",
-    image: "/images/WhatsApp Image 2026-04-05 at 17.12.14.jpeg",
+    image: "/images/vista-240.jpg.jpeg",
   },
   {
     id: "bursa-mountain",
@@ -272,7 +272,7 @@ export const projects = [
       "Панорамна планинска тераса",
     ],
     gradient: "from-slate-700 via-slate-900 to-zinc-950",
-    image: "/images/WhatsApp Image 2026-04-05 at 17.12.13.jpeg",
+    image: "/images/skyline-180.jpg.jpeg",
   },
   {
     id: "izmir-coastal",
@@ -300,7 +300,7 @@ export const projects = [
       "Гостна флигел 65m²",
     ],
     gradient: "from-blue-900 via-slate-900 to-zinc-950",
-    image: "/images/WhatsApp Image 2026-04-05 at 17.12.15.jpeg",
+    image: "/images/summit-320.jpg.jpeg",
   },
   {
     id: "abant-forest",
@@ -328,7 +328,7 @@ export const projects = [
       "Частен достъп до гората",
     ],
     gradient: "from-green-900 via-zinc-900 to-stone-950",
-    image: "/images/WhatsApp Image 2026-04-05 at 17.12.15 2.jpeg",
+    image: "/images/studio-65.jpg.jpeg",
   },
   {
     id: "istanbul-terrace",
@@ -356,7 +356,7 @@ export const projects = [
       "Интелигентна автоматизация на сградата",
     ],
     gradient: "from-neutral-700 via-zinc-900 to-stone-950",
-    image: "/images/WhatsApp Image 2026-04-05 at 17.12.16.jpeg",
+    image: "/images/horizon-160.jpg.jpeg",
   },
   {
     id: "antalya-estate",
@@ -384,7 +384,7 @@ export const projects = [
       "Тераса с медитерански градини",
     ],
     gradient: "from-amber-900 via-zinc-900 to-neutral-950",
-    image: "/images/WhatsApp Image 2026-04-05 at 17.12.44.jpeg",
+    image: "/images/pinnacle-400.jpg.jpeg",
   },
 ];
 

@@ -8,14 +8,14 @@ type Model = ReturnType<typeof getLocalizedModels>[number];
 const labels = {
   en: {
     area: "Area", bedrooms: "Bedrooms", bathrooms: "Bathrooms",
-    storeys: "Storeys", from: "From",
+    storeys: "Storeys",
     included: "Included Features",
     requestQuote: "Request Quote",
     downloadFloorPlan: "Download Floor Plan",
   },
   bg: {
     area: "Площ", bedrooms: "Спални", bathrooms: "Бани",
-    storeys: "Етажи", from: "От",
+    storeys: "Етажи",
     included: "Включени Характеристики",
     requestQuote: "Заявете Оферта",
     downloadFloorPlan: "Изтеглете Разпределение",
@@ -75,7 +75,6 @@ export function ModelCard({ model, featured = false, lang }: ModelCardProps) {
               { label: t.bedrooms, value: model.bedrooms },
               { label: t.bathrooms, value: model.bathrooms },
               { label: t.storeys, value: model.stories },
-              { label: t.from, value: `€${model.price.toLocaleString()}` },
             ].map((spec) => (
               <div key={spec.label} className="flex flex-col gap-1">
                 <span className="font-sans text-brand-gray text-[10px] tracking-widest uppercase">

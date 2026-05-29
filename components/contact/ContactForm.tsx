@@ -7,11 +7,9 @@ import type { Lang } from "@/lib/data";
 const labels = {
   en: {
     labelName: "Full Name", labelEmail: "Email Address", labelPhone: "Phone Number",
-    labelInterest: "Interest", labelBudget: "Budget Range", labelMessage: "Tell Us About Your Project",
-    selectModel: "Select a model...", selectBudget: "Select budget range...",
-    bespoke: "Bespoke / Not Sure Yet",
-    budget1: "Under €150,000", budget2: "€150,000 – €300,000", budget3: "€300,000 – €500,000",
-    budget4: "€500,000 – €1,000,000", budget5: "Over €1,000,000",
+    labelInterest: "Interest", labelMessage: "Tell Us About Your Project",
+    selectModel: "Select a model...",
+    bespoke: "Custom Design / Not Sure Yet",
     privacy: "We respond to all enquiries within one business day. Your information is kept strictly confidential.",
     send: "Send Enquiry", sending: "Sending...",
     thankYou: "Thank You",
@@ -22,11 +20,9 @@ const labels = {
   },
   bg: {
     labelName: "Пълно Име", labelEmail: "Имейл Адрес", labelPhone: "Телефонен Номер",
-    labelInterest: "Интерес", labelBudget: "Бюджет", labelMessage: "Разкажете ни за вашия проект",
-    selectModel: "Изберете модел...", selectBudget: "Изберете бюджет...",
-    bespoke: "По Заявка / Не Съм Сигурен Още",
-    budget1: "Под €150 000", budget2: "€150 000 – €300 000", budget3: "€300 000 – €500 000",
-    budget4: "€500 000 – €1 000 000", budget5: "Над €1 000 000",
+    labelInterest: "Интерес", labelMessage: "Разкажете ни за вашия проект",
+    selectModel: "Изберете модел...",
+    bespoke: "Собствен Дизайн / Не Съм Сигурен Още",
     privacy: "Отговаряме на всички запитвания в рамките на един работен ден. Вашата информация е строго поверителна.",
     send: "Изпратете Запитване", sending: "Изпращане...",
     thankYou: "Благодарим Ви",
@@ -39,9 +35,9 @@ const labels = {
 
 interface FormData {
   name: string; email: string; phone: string;
-  interest: string; message: string; budget: string;
+  interest: string; message: string;
 }
-const initialForm: FormData = { name: "", email: "", phone: "", interest: "", message: "", budget: "" };
+const initialForm: FormData = { name: "", email: "", phone: "", interest: "", message: "" };
 
 export function ContactForm({ lang }: { lang: Lang }) {
   const t = labels[lang];
@@ -89,30 +85,16 @@ export function ContactForm({ lang }: { lang: Lang }) {
           onChange={handleChange}
           options={[
             { value: "", label: t.selectModel },
-            { value: "studio-65", label: `Studio 65 — ${lang === "bg" ? "от" : "from"} €125,000` },
-            { value: "horizon-160", label: `Horizon 160 — ${lang === "bg" ? "от" : "from"} €245,000` },
-            { value: "skyline-180", label: `Skyline 180 — ${lang === "bg" ? "от" : "from"} €285,000` },
-            { value: "vista-240", label: `Vista 240 — ${lang === "bg" ? "от" : "from"} €385,000` },
-            { value: "summit-320", label: `Summit 320 — ${lang === "bg" ? "от" : "from"} €520,000` },
-            { value: "pinnacle-400", label: `Pinnacle 400 — ${lang === "bg" ? "от" : "from"} €680,000` },
+            { value: "studio-65", label: "Studio 65" },
+            { value: "horizon-160", label: "Horizon 160" },
+            { value: "skyline-180", label: "Skyline 180" },
+            { value: "vista-240", label: "Vista 240" },
+            { value: "summit-320", label: "Summit 320" },
+            { value: "pinnacle-400", label: "Pinnacle 400" },
             { value: "bespoke", label: t.bespoke },
           ]}
         />
       </div>
-      <SelectField
-        label={t.labelBudget}
-        name="budget"
-        value={form.budget}
-        onChange={handleChange}
-        options={[
-          { value: "", label: t.selectBudget },
-          { value: "under-150k", label: t.budget1 },
-          { value: "150-300k", label: t.budget2 },
-          { value: "300-500k", label: t.budget3 },
-          { value: "500k-1m", label: t.budget4 },
-          { value: "over-1m", label: t.budget5 },
-        ]}
-      />
       <TextareaField label={t.labelMessage} name="message" value={form.message} onChange={handleChange} placeholder={t.messagePlaceholder} rows={5} />
       <div className="flex items-center justify-between gap-6 pt-2">
         <p className="font-sans text-brand-gray text-xs leading-relaxed max-w-xs">{t.privacy}</p>

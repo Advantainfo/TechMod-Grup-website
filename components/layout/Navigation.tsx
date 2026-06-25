@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -42,6 +42,8 @@ export function Navigation({ lang }: NavigationProps) {
   const t = labels[lang];
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   const navLinks = [
@@ -53,6 +55,7 @@ export function Navigation({ lang }: NavigationProps) {
   ];
 
   const allLangs: Lang[] = ["en", "bg", "tr"];
+  const otherLangs = allLangs.filter((l) => l !== lang);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -70,6 +73,17 @@ export function Navigation({ lang }: NavigationProps) {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
+  // Close lang dropdown when clicking outside
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
   return (
     <>
       <header
@@ -79,17 +93,14 @@ export function Navigation({ lang }: NavigationProps) {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-1 flex items-center justify-between">
-          <Link
-            href={`/${lang}`}
-            aria-label="Techmod Group — Home"
-          >
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-2 flex items-center justify-between">
+          <Link href={`/${lang}`} aria-label="Techmod Group — Home">
             <Image
               src="/logo.png"
               alt="Techmod Group"
-              width={420}
-              height={210}
-              className="h-32 w-auto object-contain"
+              width={460}
+              height={230}
+              className="h-28 w-auto object-contain"
               priority
             />
           </Link>
@@ -111,22 +122,41 @@ export function Navigation({ lang }: NavigationProps) {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
-            <div className="flex items-center border border-brand-border">
-              {allLangs.map((l) => (
-                <Link
-                  key={l}
-                  href={pathname.replace(`/${lang}`, `/${l}`)}
-                  className={`font-sans text-[10px] tracking-[0.2em] uppercase px-2.5 py-1.5 transition-colors duration-200 border-r border-brand-border last:border-r-0 ${
-                    l === lang ? "text-white" : "text-brand-gray hover:text-white"
-                  }`}
-                >
-                  {l.toUpperCase()}
-                </Link>
-              ))}
-            </div>
             <Button href={`/${lang}/contact`} variant="outline" size="sm">
               {t.getQuote}
             </Button>
+
+            {/* Language dropdown */}
+            <div ref={langRef} className="relative">
+              <button
+                onClick={() => setLangOpen((v) => !v)}
+                className="flex items-center gap-1.5 border border-brand-border px-3 py-1.5 font-sans text-[10px] tracking-[0.2em] uppercase text-white hover:text-brand-accent transition-colors duration-200"
+              >
+                {lang.toUpperCase()}
+                <svg
+                  className={`w-2.5 h-2.5 transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}
+                  viewBox="0 0 10 6"
+                  fill="none"
+                >
+                  <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                </svg>
+              </button>
+
+              {langOpen && (
+                <div className="absolute right-0 top-full mt-1 bg-brand-dark border border-brand-border flex flex-col min-w-full">
+                  {otherLangs.map((l) => (
+                    <Link
+                      key={l}
+                      href={pathname.replace(`/${lang}`, `/${l}`)}
+                      onClick={() => setLangOpen(false)}
+                      className="font-sans text-[10px] tracking-[0.2em] uppercase px-3 py-2 text-brand-gray hover:text-white hover:bg-brand-border/20 transition-colors duration-200"
+                    >
+                      {l.toUpperCase()}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           <button
@@ -173,6 +203,7 @@ export function Navigation({ lang }: NavigationProps) {
             <Button href={`/${lang}/contact`} variant="primary" size="lg">
               {t.getQuote}
             </Button>
+            {/* Mobile lang switcher — keep inline for clarity */}
             <div className="flex items-center border border-brand-border">
               {allLangs.map((l) => (
                 <Link
@@ -204,4 +235,3 @@ export function Navigation({ lang }: NavigationProps) {
     </>
   );
 }
-

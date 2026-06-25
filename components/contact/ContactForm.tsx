@@ -31,6 +31,19 @@ const labels = {
     messagePlaceholder: "Местоположение на имота, размер на парцела, желан срок, специални изисквания...",
     phonePlaceholder: "+359 (88) 000 0000",
   },
+  tr: {
+    labelName: "Ad Soyad", labelEmail: "E-posta Adresi", labelPhone: "Telefon Numarası",
+    labelInterest: "İlgi Alanı", labelMessage: "Projenizi Anlatın",
+    selectModel: "Bir model seçin...",
+    bespoke: "Özel Tasarım / Henüz Emin Değilim",
+    privacy: "Tüm sorulara bir iş günü içinde yanıt veriyoruz. Bilgileriniz kesinlikle gizli tutulur.",
+    send: "Sorgu Gönder", sending: "Gönderiliyor...",
+    thankYou: "Teşekkürler",
+    received: "Sorgunuzu aldık, bir iş günü içinde sizinle iletişime geçeceğiz.",
+    sendAnother: "Başka Mesaj Gönder",
+    messagePlaceholder: "Arazi konumu, parsel büyüklüğü, istenen zaman çizelgesi, özel gereksinimler...",
+    phonePlaceholder: "+90 (555) 000 0000",
+  },
 };
 
 interface FormData {

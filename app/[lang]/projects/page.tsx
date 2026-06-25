@@ -19,6 +19,13 @@ const labels = {
     stat1Label: "Доставени Домове", stat2Label: "Града",
     stat3Label: "Удовлетвореност", stat4Label: "Средно Строит. Време",
   },
+  tr: {
+    eyebrow: "Çalışmalarımız",
+    title: "Mükemmelliği Tanımlayan<br/>Projeler",
+    subtitle: "Türkiye genelinde teslim edilen 150'den fazla ev. Her biri işbirliği, hassasiyet ve mimari hırsın benzersiz hikayesi.",
+    stat1Label: "Teslim Edilen Ev", stat2Label: "Şehir",
+    stat3Label: "Müşteri Memnuniyeti", stat4Label: "Ort. İnşaat Süresi",
+  },
 };
 
 export default async function ProjectsPage({ params }: { params: Promise<{ lang: string }> }) {
@@ -49,7 +56,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ lang:
               { value: "150+", label: t.stat1Label },
               { value: "28", label: t.stat2Label },
               { value: "98%", label: t.stat3Label },
-              { value: lang === "bg" ? "11 седм." : "11 wks", label: t.stat4Label },
+              { value: lang === "bg" ? "11 седм." : lang === "tr" ? "11 hafta" : "11 wks", label: t.stat4Label },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="font-serif text-3xl text-brand-accent">{stat.value}</p>

@@ -23,6 +23,15 @@ const labels = {
     contact: "Свържете се с нас",
     call: "Обадете ни се",
   },
+  tr: {
+    eyebrow: "Sık Sorulan",
+    title: "Bilmeniz Gereken<br/>Her Şey",
+    subtitle: "Cevabınızı burada bulamadınız mı? Bizi arayın veya danışma talep edin — her soruyu ayrıntılı yanıtlamaktan memnuniyet duyarız.",
+    stillHave: "Hâlâ sorunuz var mı?",
+    teamResponds: "Ekibimiz tüm sorulara bir iş günü içinde yanıt verir.",
+    contact: "Bize Ulaşın",
+    call: "Bizi Arayın",
+  },
 };
 
 export default async function FAQPage({ params }: { params: Promise<{ lang: string }> }) {

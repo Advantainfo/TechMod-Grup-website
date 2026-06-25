@@ -27,6 +27,18 @@ const labels = {
     stat3Val: "Фиксирана", stat3Label: "Гаранция за Цена",
     stat4Val: "Без", stat4Label: "Скрити Разходи",
   },
+  tr: {
+    eyebrow: "Yolculuğunuzu Başlatın",
+    title1: "Hayalinizdeki Ev",
+    title2: "14 Hafta Uzağınızda",
+    desc: "Mimari ekibimizle ücretsiz danışma randevusu alın. Arazinizi inceleriz, vizyonunuzu konuşuruz ve bir hafta içinde taahhütsüz teklif sunarız.",
+    cta1: "Danışma Talep Et",
+    cta2: "Modelleri İncele",
+    stat1Val: "Ücretsiz", stat1Label: "Danışma",
+    stat2Val: "1 hafta", stat2Label: "Teklif Süresi",
+    stat3Val: "Sabit", stat3Label: "Fiyat Garantisi",
+    stat4Val: "Gizli", stat4Label: "Maliyet Yok",
+  },
 };
 
 export function ContactCTA({ lang }: { lang: Lang }) {

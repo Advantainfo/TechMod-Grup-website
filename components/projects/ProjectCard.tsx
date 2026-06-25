@@ -8,6 +8,7 @@ type Project = ReturnType<typeof getLocalizedProjects>[number];
 const labels = {
   en: { area: "Area", buildTime: "Build Time", buildSimilar: "Build Similar" },
   bg: { area: "Площ", buildTime: "Строително Време", buildSimilar: "Изградете Подобен" },
+  tr: { area: "Alan", buildTime: "İnşaat Süresi", buildSimilar: "Benzerini İnşa Et" },
 };
 
 interface ProjectCardProps {
@@ -33,7 +34,8 @@ export function ProjectCard({ project, reverse = false, lang }: ProjectCardProps
         <ArchImage
           gradient={project.gradient}
           src={project.image}
-          className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+          overlay="strong"
+          className="absolute inset-0 group-hover:scale-[1.04] transition-transform duration-700 ease-in-out"
           label={project.name}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />

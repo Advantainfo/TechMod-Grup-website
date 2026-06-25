@@ -24,6 +24,16 @@ const labels = {
     faqTeaser: "Имате още въпроси?",
     faqLink: "Прочетете нашите ЧЗВ →",
   },
+  tr: {
+    eyebrow: "Sürecimiz",
+    title: "Yeni Evinize<br/>Altı Adım",
+    subtitle: "Her aşamayı tam şeffaflıkla yönetiyoruz. İşte ilk aramanızdan yeni evinizde ilk geceye kadar tam olarak neler oluyor.",
+    totalTimeline: "Toplam Proje Zaman Çizelgesi",
+    timelineValue: "10 – 22 hafta",
+    phaseDesign: "Tasarım", phaseProduction: "Üretim", phaseInstall: "Montaj",
+    faqTeaser: "Daha fazla sorunuz mu var?",
+    faqLink: "SSS'yi okuyun →",
+  },
 };
 
 export default async function ProcessPage({ params }: { params: Promise<{ lang: string }> }) {

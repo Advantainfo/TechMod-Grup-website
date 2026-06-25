@@ -3,7 +3,7 @@ import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import type { Lang } from "@/lib/data";
 
-const supportedLangs: Lang[] = ["en", "bg"];
+const supportedLangs: Lang[] = ["en", "bg", "tr"];
 
 export function generateStaticParams() {
   return supportedLangs.map((lang) => ({ lang }));

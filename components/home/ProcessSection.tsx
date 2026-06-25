@@ -20,6 +20,14 @@ const labels = {
     avgTimeline: "Средно общо времетраене: 10–22 седмици",
     viewAll: "Виж всички 6 стъпки →",
   },
+  tr: {
+    eyebrow: "Nasıl Çalışır",
+    title: "Brifingden<br/>Anahtara",
+    subtitle: "İlk danışmadan yeni evinizin kapısından ilk adımı attığınız güne kadar sorunsuz altı adımlık yolculuk.",
+    cta: "Tam Süreç Genel Bakışı",
+    avgTimeline: "Ortalama toplam süre: 10–22 hafta",
+    viewAll: "Tüm 6 adımı gör →",
+  },
 };
 
 export function ProcessSection({ lang }: { lang: Lang }) {

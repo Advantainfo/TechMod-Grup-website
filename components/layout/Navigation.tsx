@@ -23,6 +23,14 @@ const labels: Record<Lang, Record<string, string>> = {
     faq: "Въпроси",
     getQuote: "Оферта",
   },
+  tr: {
+    models: "Modeller",
+    projects: "Projeler",
+    process: "Süreç",
+    about: "Hakkımızda",
+    faq: "SSS",
+    getQuote: "Teklif Al",
+  },
 };
 
 interface NavigationProps {
@@ -43,8 +51,7 @@ export function Navigation({ lang }: NavigationProps) {
     { href: `/${lang}/faq`, label: t.faq },
   ];
 
-  const otherLang: Lang = lang === "en" ? "bg" : "en";
-  const langSwitchHref = pathname.replace(`/${lang}`, `/${otherLang}`);
+  const allLangs: Lang[] = ["en", "bg", "tr"];
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -105,12 +112,19 @@ export function Navigation({ lang }: NavigationProps) {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
-            <Link
-              href={langSwitchHref}
-              className="font-sans text-[10px] tracking-[0.2em] uppercase text-brand-gray hover:text-white transition-colors duration-200 border border-brand-border px-2.5 py-1.5"
-            >
-              {otherLang.toUpperCase()}
-            </Link>
+            <div className="flex items-center border border-brand-border">
+              {allLangs.map((l) => (
+                <Link
+                  key={l}
+                  href={pathname.replace(`/${lang}`, `/${l}`)}
+                  className={`font-sans text-[10px] tracking-[0.2em] uppercase px-2.5 py-1.5 transition-colors duration-200 border-r border-brand-border last:border-r-0 ${
+                    l === lang ? "text-white" : "text-brand-gray hover:text-white"
+                  }`}
+                >
+                  {l.toUpperCase()}
+                </Link>
+              ))}
+            </div>
             <Button href={`/${lang}/contact`} variant="outline" size="sm">
               {t.getQuote}
             </Button>
@@ -160,12 +174,19 @@ export function Navigation({ lang }: NavigationProps) {
             <Button href={`/${lang}/contact`} variant="primary" size="lg">
               {t.getQuote}
             </Button>
-            <Link
-              href={langSwitchHref}
-              className="font-sans text-sm tracking-widest uppercase text-brand-gray-light border border-brand-border px-4 py-3"
-            >
-              {otherLang.toUpperCase()}
-            </Link>
+            <div className="flex items-center border border-brand-border">
+              {allLangs.map((l) => (
+                <Link
+                  key={l}
+                  href={pathname.replace(`/${lang}`, `/${l}`)}
+                  className={`font-sans text-sm tracking-widest uppercase px-4 py-3 transition-colors duration-200 border-r border-brand-border last:border-r-0 ${
+                    l === lang ? "text-white" : "text-brand-gray-light hover:text-white"
+                  }`}
+                >
+                  {l.toUpperCase()}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
         <div className="p-8 flex items-center justify-between border-t border-brand-border">

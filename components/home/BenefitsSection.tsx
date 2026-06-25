@@ -13,6 +13,11 @@ const labels = {
     title: "Разликата на Премиум<br/>Сглобяемото Строителство",
     subtitle: "Фабрична прецизност. Архитектурно качество. Доставено за малко от времето.",
   },
+  tr: {
+    eyebrow: "Neden Techmod Group",
+    title: "Premium Prefabrik<br/>Farkı",
+    subtitle: "Fabrika hassasiyeti. Mimari kalite. Çok daha kısa sürede teslim.",
+  },
 };
 
 const icons: Record<string, React.FC> = {

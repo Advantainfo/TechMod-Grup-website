@@ -6,14 +6,19 @@ import { getLocalizedModels, type Lang } from "@/lib/data";
 
 const labels = {
   en: {
-    eyebrow: "Our Range",
-    title: "Homes Built<br/>for Every Vision",
-    subtitle: "Six models. Infinite possibilities. Each one a complete architectural statement — engineered for precision and finished to exacting standards.",
+    eyebrow: "Our Collection",
+    title: "Six Models.<br/>One Standard of Excellence.",
+    subtitle: "Each Techmod home is an architectural statement — engineered to factory precision and finished to exacting standards. Choose your starting point.",
   },
   bg: {
-    eyebrow: "Нашата Гама",
-    title: "Домове, Изградени<br/>за Всяка Визия",
-    subtitle: "Шест модела. Безкрайни възможности. Всеки е пълна архитектурна декларация — проектирана с прецизност и завършена по строги стандарти.",
+    eyebrow: "Нашата Колекция",
+    title: "Шест Модела.<br/>Един Стандарт на Съвършенство.",
+    subtitle: "Всеки дом Techmod е архитектурна декларация — произведен с фабрична прецизност и завършен по строги стандарти. Изберете вашата отправна точка.",
+  },
+  tr: {
+    eyebrow: "Koleksiyonumuz",
+    title: "Altı Model.<br/>Tek Mükemmellik Standardı.",
+    subtitle: "Her Techmod evi mimari bir ifadedir — fabrika hassasiyetiyle üretilmiş ve titiz standartlarda bitirilmiştir. Başlangıç noktanızı seçin.",
   },
 };
 
@@ -25,7 +30,8 @@ export default async function ModelsPage({ params }: { params: Promise<{ lang: s
 
   return (
     <>
-      <section className="relative pt-36 pb-16 lg:pt-44 lg:pb-20 bg-brand-dark overflow-hidden">
+      {/* Hero */}
+      <section className="relative pt-36 pb-16 lg:pt-44 lg:pb-24 bg-brand-dark overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -39,15 +45,17 @@ export default async function ModelsPage({ params }: { params: Promise<{ lang: s
           <AnimateInView>
             <SectionTitle eyebrow={t.eyebrow} title={t.title} subtitle={t.subtitle} />
           </AnimateInView>
+
         </div>
       </section>
 
-      <section className="py-16 lg:py-20 bg-brand-dark">
+      {/* Grid */}
+      <section className="py-16 lg:py-24 bg-brand-dark">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
             {models.map((model, i) => (
-              <AnimateInView key={model.id} delay={i * 80}>
-                <ModelCard model={model} featured={i === 0} lang={l} />
+              <AnimateInView key={model.id} delay={i * 60} className="h-full">
+                <ModelCard model={model} lang={l} />
               </AnimateInView>
             ))}
           </div>

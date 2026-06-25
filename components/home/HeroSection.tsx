@@ -28,6 +28,19 @@ const t = {
     stat2Val: "14 седм.", stat2Label: "Средно Строително Време",
     stat3Val: "25 год.", stat3Label: "Гаранция за Конструкцията",
   },
+  tr: {
+    eyebrow: "Premium Prefabrik Evler",
+    line1: "Olağanüstü",
+    line2: "Yaşam",
+    line3: "İçin",
+    desc: "Techmod Group, modern lüksü yeniden tanımlayan premium prefabrik evler tasarlar, üretir ve kurar — yıllarca değil, haftalar içinde teslim edilir.",
+    cta1: "Modelleri İnceleyin",
+    cta2: "Danışma Talep Edin",
+    scroll: "Kaydır",
+    stat1Val: "150+", stat1Label: "Teslim Edilen Ev",
+    stat2Val: "14 hafta", stat2Label: "Ortalama İnşaat Süresi",
+    stat3Val: "25 yıl", stat3Label: "Yapısal Garanti",
+  },
 };
 
 export function HeroSection({ lang }: { lang: Lang }) {

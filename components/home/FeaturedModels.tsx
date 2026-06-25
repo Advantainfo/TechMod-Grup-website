@@ -28,6 +28,17 @@ const labels = {
     viewModel: "Виж Модела",
     viewAll: "Виж Всички Модели",
   },
+  tr: {
+    eyebrow: "Ev Modelleri",
+    title: "Olağanüstü Yaşam<br/>İçin Tasarlandı",
+    subtitle: "Her Techmod modeli mimari bir ifadedir — fabrikamızda üretilir ve sahanıza eksiksiz teslim edilir.",
+    bed: "yatak",
+    bath: "banyo",
+    singleStorey: "Tek katlı",
+    twoStoreys: "İki katlı",
+    viewModel: "Modeli Gör",
+    viewAll: "Tüm Modelleri Gör",
+  },
 };
 
 export function FeaturedModels({ lang }: { lang: Lang }) {
@@ -45,60 +56,62 @@ export function FeaturedModels({ lang }: { lang: Lang }) {
           />
         </AnimateInView>
 
-        <div className="mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {featured.map((model, i) => (
             <AnimateInView key={model.id} delay={i * 100}>
               <Link
                 href={`/${lang}/models#${model.id}`}
-                className="group block bg-brand-tertiary border border-brand-border overflow-hidden card-lift"
+                className="group block bg-brand-secondary border border-brand-border overflow-hidden transition-all duration-500 hover:border-brand-accent/25 hover:shadow-[0_24px_60px_rgba(0,0,0,0.45)]"
               >
-                <div className="relative aspect-[4/3] overflow-hidden">
+                {/* Full-bleed image with overlay text */}
+                <div className="relative aspect-[3/2] overflow-hidden">
                   <ArchImage
                     gradient={model.gradient}
                     accent={model.accent}
                     src={model.image}
-                    className="absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+                    overlay="strong"
+                    className="absolute inset-0 group-hover:scale-[1.04] transition-transform duration-700 ease-in-out"
                     label={`${model.name} — ${model.area}m²`}
                   />
+
+                  {/* Badge */}
                   {model.badge && (
-                    <div className="absolute top-4 left-4 bg-brand-accent text-brand-dark font-sans text-[10px] tracking-widest uppercase px-3 py-1.5 z-10">
-                      {model.badge}
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-white bg-brand-accent/90 px-3 py-1.5">
+                        {model.badge}
+                      </span>
                     </div>
                   )}
-                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-brand-tertiary to-transparent z-10" />
-                </div>
 
-                <div className="p-6 lg:p-7">
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <h3 className="font-serif text-2xl text-white group-hover:text-brand-accent transition-colors duration-300">
-                        {model.name}
-                      </h3>
-                      <p className="font-sans text-brand-gray text-xs tracking-wider mt-1">
-                        {model.tagline}
-                      </p>
-                    </div>
-                    <span className="font-sans text-brand-gray text-xs mt-1">{model.area}m²</span>
+                  {/* Area chip */}
+                  <div className="absolute top-4 right-4 z-10 font-sans text-[10px] tracking-widest text-white/60 bg-black/30 backdrop-blur-sm px-2 py-1 border border-white/10">
+                    {model.area}m²
                   </div>
 
-                  <p className="font-sans text-brand-gray-light text-sm leading-relaxed line-clamp-2 mb-5">
-                    {model.description}
-                  </p>
+                  {/* Bottom title overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 z-10 px-5 pb-5 pt-10">
+                    <h3 className="font-serif text-2xl text-white group-hover:text-brand-accent transition-colors duration-300 leading-tight">
+                      {model.name}
+                    </h3>
+                    <p className="font-sans text-white/50 text-[10px] tracking-[0.2em] uppercase mt-1">
+                      {model.tagline}
+                    </p>
+                  </div>
+                </div>
 
-                  <div className="flex gap-4 text-xs font-sans text-brand-gray mb-6">
+                {/* Compact info strip */}
+                <div className="px-5 py-4 flex items-center justify-between border-t border-brand-border/60">
+                  <div className="flex gap-4 text-[11px] font-sans text-brand-gray">
                     <span>{model.bedrooms} {t.bed}</span>
                     <span className="text-brand-border">·</span>
                     <span>{model.bathrooms} {t.bath}</span>
                     <span className="text-brand-border">·</span>
                     <span>{model.stories === 1 ? t.singleStorey : t.twoStoreys}</span>
                   </div>
-
-                  <div className="flex items-center justify-end pt-5 border-t border-brand-border">
-                    <span className="font-sans text-brand-accent text-xs tracking-widest uppercase group-hover:gap-3 flex items-center gap-2 transition-all duration-300">
-                      {t.viewModel}
-                      <ArrowRight />
-                    </span>
-                  </div>
+                  <span className="font-sans text-brand-accent text-[10px] tracking-widest uppercase flex items-center gap-1.5 group-hover:gap-3 transition-all duration-300">
+                    {t.viewModel}
+                    <ArrowRight />
+                  </span>
                 </div>
               </Link>
             </AnimateInView>

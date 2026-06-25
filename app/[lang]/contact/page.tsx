@@ -28,6 +28,18 @@ const labels = {
     fillForm: "Попълнете формуляра по-долу и ще ви изпратим персонализирана оферта в рамките на един работен ден.",
     locationLabel: "Леvent, Истанбул",
   },
+  tr: {
+    eyebrow: "Bize Ulaşın",
+    title: "Birlikte Olağanüstü<br/>Bir Şey İnşa Edelim",
+    subtitle: "Her harika ev bir konuşmayla başlar. Bize projenizi anlatın, bir iş günü içinde sizinle iletişime geçeceğiz.",
+    getInTouch: "İletişime Geçin",
+    labelPhone: "Telefon", labelEmail: "E-posta", labelAddress: "Adres", labelHours: "Çalışma Saatleri",
+    hoursValue: "Pazartesi – Cuma\n09:00 – 18:00",
+    followWork: "Çalışmalarımızı Takip Edin",
+    requestQuote: "Teklif Talep Edin",
+    fillForm: "Aşağıdaki formu doldurun, bir iş günü içinde kişiselleştirilmiş teklifinizi göndereceğiz.",
+    locationLabel: "Levent, İstanbul",
+  },
 };
 
 export default async function ContactPage({ params }: { params: Promise<{ lang: string }> }) {

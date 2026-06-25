@@ -5,6 +5,7 @@ import { getLocalizedTestimonials, type Lang } from "@/lib/data";
 const labels = {
   en: { eyebrow: "Client Testimonials", title: "What Our Clients Say" },
   bg: { eyebrow: "Отзиви на Клиенти", title: "Какво Казват Нашите Клиенти" },
+  tr: { eyebrow: "Müşteri Görüşleri", title: "Müşterilerimiz Ne Diyor" },
 };
 
 export function TestimonialsSection({ lang }: { lang: Lang }) {

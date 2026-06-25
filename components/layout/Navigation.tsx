@@ -56,7 +56,7 @@ export function Navigation({ lang }: NavigationProps) {
 
   const allLangs: Lang[] = ["en", "bg", "tr"];
   const otherLangs = allLangs.filter((l) => l !== lang);
-  const flags: Record<Lang, string> = { en: "🇬🇧", bg: "🇧🇬", tr: "🇹🇷" };
+  const flagCodes: Record<Lang, string> = { en: "gb", bg: "bg", tr: "tr" };
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -133,7 +133,7 @@ export function Navigation({ lang }: NavigationProps) {
                 onClick={() => setLangOpen((v) => !v)}
                 className="flex items-center gap-1.5 border border-brand-border px-3 py-1.5 font-sans text-[10px] tracking-[0.2em] uppercase text-white hover:text-brand-accent transition-colors duration-200"
               >
-                <span>{flags[lang]}</span>
+                <span className={`fi fi-${flagCodes[lang]}`} />
                 {lang.toUpperCase()}
                 <svg
                   className={`w-2.5 h-2.5 transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}
@@ -153,7 +153,7 @@ export function Navigation({ lang }: NavigationProps) {
                       onClick={() => setLangOpen(false)}
                       className="flex items-center gap-2 font-sans text-[10px] tracking-[0.2em] uppercase px-3 py-2 text-brand-gray hover:text-white hover:bg-brand-border/20 transition-colors duration-200"
                     >
-                      <span>{flags[l]}</span>
+                      <span className={`fi fi-${flagCodes[l]}`} />
                       {l.toUpperCase()}
                     </Link>
                   ))}
@@ -216,7 +216,7 @@ export function Navigation({ lang }: NavigationProps) {
                     l === lang ? "text-white" : "text-brand-gray-light hover:text-white"
                   }`}
                 >
-                  <span>{flags[l]}</span>
+                  <span className={`fi fi-${flagCodes[l]}`} />
                   {l.toUpperCase()}
                 </Link>
               ))}

@@ -56,6 +56,7 @@ export function Navigation({ lang }: NavigationProps) {
 
   const allLangs: Lang[] = ["en", "bg", "tr"];
   const otherLangs = allLangs.filter((l) => l !== lang);
+  const flags: Record<Lang, string> = { en: "🇬🇧", bg: "🇧🇬", tr: "🇹🇷" };
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -132,6 +133,7 @@ export function Navigation({ lang }: NavigationProps) {
                 onClick={() => setLangOpen((v) => !v)}
                 className="flex items-center gap-1.5 border border-brand-border px-3 py-1.5 font-sans text-[10px] tracking-[0.2em] uppercase text-white hover:text-brand-accent transition-colors duration-200"
               >
+                <span>{flags[lang]}</span>
                 {lang.toUpperCase()}
                 <svg
                   className={`w-2.5 h-2.5 transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}
@@ -149,8 +151,9 @@ export function Navigation({ lang }: NavigationProps) {
                       key={l}
                       href={pathname.replace(`/${lang}`, `/${l}`)}
                       onClick={() => setLangOpen(false)}
-                      className="font-sans text-[10px] tracking-[0.2em] uppercase px-3 py-2 text-brand-gray hover:text-white hover:bg-brand-border/20 transition-colors duration-200"
+                      className="flex items-center gap-2 font-sans text-[10px] tracking-[0.2em] uppercase px-3 py-2 text-brand-gray hover:text-white hover:bg-brand-border/20 transition-colors duration-200"
                     >
+                      <span>{flags[l]}</span>
                       {l.toUpperCase()}
                     </Link>
                   ))}
@@ -209,10 +212,11 @@ export function Navigation({ lang }: NavigationProps) {
                 <Link
                   key={l}
                   href={pathname.replace(`/${lang}`, `/${l}`)}
-                  className={`font-sans text-sm tracking-widest uppercase px-4 py-3 transition-colors duration-200 border-r border-brand-border last:border-r-0 ${
+                  className={`flex items-center gap-2 font-sans text-sm tracking-widest uppercase px-4 py-3 transition-colors duration-200 border-r border-brand-border last:border-r-0 ${
                     l === lang ? "text-white" : "text-brand-gray-light hover:text-white"
                   }`}
                 >
+                  <span>{flags[l]}</span>
                   {l.toUpperCase()}
                 </Link>
               ))}

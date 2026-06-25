@@ -269,7 +269,7 @@ export const models = [
     badge: "Bespoke",
     badge_bg: "По Поръчка",
     badge_tr: "Özel Tasarım",
-    image: "/images/summit-320.jpg.jpeg",
+    image: "/images/pinnacle-400.jpg.jpeg",
   },
 ];
 
@@ -504,7 +504,7 @@ export const projects = [
       "Teraslı Akdeniz bahçesi",
     ],
     gradient: "from-amber-900 via-zinc-900 to-neutral-950",
-    image: "/images/summit-320.jpg.jpeg",
+    image: "/images/summit-320000.jpg.jpeg",
   },
 ];
 

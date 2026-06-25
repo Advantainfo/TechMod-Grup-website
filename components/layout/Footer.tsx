@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Lang } from "@/lib/data";
 
 const labels: Record<Lang, Record<string, string>> = {
@@ -76,31 +77,23 @@ export function Footer({ lang }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           <div className="lg:col-span-2">
             <div className="flex flex-col gap-5 max-w-sm">
-              <Link href={`/${lang}`} className="flex flex-col leading-none w-fit">
-                <span className="font-serif text-white text-2xl tracking-wider">Techmod</span>
-                <span className="font-sans text-brand-gray text-[9px] tracking-[0.3em] uppercase mt-1">
-                  Group
-                </span>
+              <Link href={`/${lang}`}>
+                <Image
+                  src="/logo.png"
+                  alt="Techmod Group"
+                  width={360}
+                  height={180}
+                  className="h-28 w-auto object-contain"
+                />
               </Link>
               <p className="font-sans text-brand-gray text-sm leading-relaxed">{t.description}</p>
               <div className="flex flex-col gap-2 text-sm font-sans">
                 <a
-                  href="tel:+902125550100"
+                  href="tel:+32489636256"
                   className="text-brand-gray-light hover:text-brand-accent transition-colors duration-200"
                 >
-                  +90 (212) 555 0100
+                  +32 489 63 62 56
                 </a>
-                <a
-                  href="mailto:hello@techmodgroup.com"
-                  className="text-brand-gray-light hover:text-brand-accent transition-colors duration-200"
-                >
-                  hello@techmodgroup.com
-                </a>
-                <address className="text-brand-gray not-italic leading-relaxed mt-1">
-                  Levent, Büyükdere Caddesi No:185
-                  <br />
-                  Şişli, Istanbul 34394
-                </address>
               </div>
             </div>
           </div>

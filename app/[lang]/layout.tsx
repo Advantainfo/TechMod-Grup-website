@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
+import { CookieBanner } from "@/components/ui/CookieBanner";
 import type { Lang } from "@/lib/data";
 
 const supportedLangs: Lang[] = ["en", "bg", "tr"];
@@ -25,6 +26,7 @@ export default async function LangLayout({
       <Navigation lang={l} />
       <main className="flex-1">{children}</main>
       <Footer lang={l} />
+      <CookieBanner lang={l} />
     </>
   );
 }

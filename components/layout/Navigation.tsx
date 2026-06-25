@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import type { Lang } from "@/lib/data";
@@ -78,21 +79,19 @@ export function Navigation({ lang }: NavigationProps) {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-18 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-1 flex items-center justify-between">
           <Link
             href={`/${lang}`}
-            className="flex items-center gap-3 group"
             aria-label="Techmod Group — Home"
           >
-            <LogoMark />
-            <div className="flex flex-col leading-none">
-              <span className="font-serif text-white text-xl tracking-wider group-hover:text-brand-accent transition-colors duration-300">
-                Techmod
-              </span>
-              <span className="font-sans text-brand-gray text-[9px] tracking-[0.3em] uppercase mt-0.5">
-                Group
-              </span>
-            </div>
+            <Image
+              src="/logo.png"
+              alt="Techmod Group"
+              width={420}
+              height={210}
+              className="h-32 w-auto object-contain"
+              priority
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-10">
@@ -190,11 +189,15 @@ export function Navigation({ lang }: NavigationProps) {
           </div>
         </div>
         <div className="p-8 flex items-center justify-between border-t border-brand-border">
-          <span className="font-sans text-brand-gray text-xs tracking-widest uppercase">
-            Techmod Group
-          </span>
+          <Image
+            src="/logo.png"
+            alt="Techmod Group"
+            width={260}
+            height={130}
+            className="h-20 w-auto object-contain"
+          />
           <span className="font-sans text-brand-gray text-xs">
-            +90 (212) 555 0100
+            +32 489 63 62 56
           </span>
         </div>
       </div>
@@ -202,27 +205,3 @@ export function Navigation({ lang }: NavigationProps) {
   );
 }
 
-function LogoMark() {
-  return (
-    <svg
-      width="32"
-      height="32"
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <rect width="32" height="32" fill="none" />
-      <polygon
-        points="16,4 28,12 28,24 16,28 4,24 4,12"
-        stroke="#FFFFFF"
-        strokeWidth="1.5"
-        fill="none"
-      />
-      <line x1="16" y1="4" x2="16" y2="28" stroke="#E8E8E8" strokeWidth="0.75" />
-      <line x1="4" y1="12" x2="28" y2="24" stroke="#E8E8E8" strokeWidth="0.75" />
-      <line x1="28" y1="12" x2="4" y2="24" stroke="#E8E8E8" strokeWidth="0.75" />
-      <circle cx="16" cy="16" r="2" fill="#FFFFFF" />
-    </svg>
-  );
-}

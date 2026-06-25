@@ -57,15 +57,29 @@ export function ContactForm({ lang }: { lang: Lang }) {
   const [form, setForm] = useState<FormData>(initialForm);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1200);
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed to send");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or contact us directly.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (submitted) {
@@ -109,6 +123,9 @@ export function ContactForm({ lang }: { lang: Lang }) {
         />
       </div>
       <TextareaField label={t.labelMessage} name="message" value={form.message} onChange={handleChange} placeholder={t.messagePlaceholder} rows={5} />
+      {error && (
+        <p className="font-sans text-red-400 text-xs">{error}</p>
+      )}
       <div className="flex items-center justify-between gap-6 pt-2">
         <p className="font-sans text-brand-gray text-xs leading-relaxed max-w-xs">{t.privacy}</p>
         <Button type="submit" variant="primary" size="lg" disabled={loading}>
